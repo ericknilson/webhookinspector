@@ -15,6 +15,10 @@ export function addRequest(requestData: RequestData): void {
   requests.push(requestData);
 }
 
+export function clearRequests(): void {
+  requests.length = 0;
+}
+
 export function getRequests(): RequestData[] {
   return requests;
 }

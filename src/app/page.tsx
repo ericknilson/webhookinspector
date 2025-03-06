@@ -17,20 +17,22 @@ interface RequestData {
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const clearRequests = () => fetch('/api/requests', { method: 'DELETE' });
 
 export default function Home() {
   const { data, error } = useSWR<RequestData[]>('/api/requests', fetcher, { refreshInterval: 3000 });
 
-  if (error) return <div className="p-4">Falha ao carregar as requisições.</div>;
-  if (!data) return <div className="p-4">Carregando...</div>;
+  if (error) return <div className="p-4">Error fetching data.</div>;
+  if (!data) return <div className="p-4">Loading...</div>;
 
   return (
     <div className="p-8 font-sans">
-      <h1 className="text-3xl font-bold mb-6">Requisições Recebidas</h1>
+      <h1 className="text-3xl font-bold mb-6">Received Requests</h1>
       <p className="mb-4">
-        Envie requisições para: https//webhook.desenlike.com.br/api/webhook para ver as requisições abaixo:
+        Send requests to: https://webhook.desenlike.com.br/api/webhook to see details here.:
       </p>
-      {data.length === 0 && <p>Nenhuma requisição recebida ainda.</p>}
+      <button onClick={() => clearRequests()}>Clear</button>
+      {data.length === 0 && <p>No requests received.</p>}
       {data.map((req, index) => (
         <div key={index} className="border border-gray-300 rounded p-4 mb-4">
           <h2 className="text-xl font-semibold mb-2">
