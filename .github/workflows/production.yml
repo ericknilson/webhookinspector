@@ -1,0 +1,56 @@
+name: CI Web Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  dist:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: echo "${{ secrets.PRODUCTION_ENV }}" > .env
+      - run: yarn
+      - run: yarn build
+      - run: zip -r deploy.zip .next next-env.d.ts tsconfig.json yarn.lock package.json public
+
+      - name: Copy to Production
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.PRODUCTION_IP }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          password: ${{ secrets.PRODUCTION_PASSWORD }}
+          source: "deploy.zip"
+          target: "~/code/webhook"
+
+      - name: Multiple Command on AWS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PRODUCTION_IP }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          password: ${{ secrets.PRODUCTION_PASSWORD }}
+          script: |
+            # Instalar o nvm (Node Version Manager)
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 20
+            nvm use 20
+            npm install -g yarn@1.22.22
+            cd ~/code/webhook
+            pm2 stop webhook
+            unzip -o deploy.zip
+            yarn install --production
+            rm -rf deploy.zip
+            pm2 start webhook
