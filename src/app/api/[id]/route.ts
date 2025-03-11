@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 import { addRequest, RequestData } from '@/lib/requests';
 
-async function commonHandler(req: Request): Promise<NextResponse> {
+async function commonHandler(req: Request, params: { id: string }): Promise<NextResponse> {
   const { method, url, headers } = req;
   const parsedUrl = new URL(url);
   let body: any = null;
@@ -18,6 +18,7 @@ async function commonHandler(req: Request): Promise<NextResponse> {
   }
 
   const requestData: RequestData = {
+    id: params?.id,
     method,
     headers: Object.fromEntries(headers.entries()),
     query: Object.fromEntries(parsedUrl.searchParams.entries()),
@@ -30,22 +31,22 @@ async function commonHandler(req: Request): Promise<NextResponse> {
   return NextResponse.json(requestData);
 }
 
-export async function GET(req: Request) {
-  return commonHandler(req);
+export async function GET(req: Request, { params }: { params: { id: string } }) {
+  return commonHandler(req, params);
 }
 
-export async function POST(req: Request) {
-  return commonHandler(req);
+export async function POST(req: Request, { params }: { params: { id: string } }) {
+  return commonHandler(req, params);
 }
 
-export async function PUT(req: Request) {
-  return commonHandler(req);
+export async function PUT(req: Request, { params }: { params: { id: string } }) {
+  return commonHandler(req, params);
 }
 
-export async function PATCH(req: Request) {
-  return commonHandler(req);
+export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+  return commonHandler(req, params);
 }
 
-export async function DELETE(req: Request) {
-  return commonHandler(req);
+export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+  return commonHandler(req, params);
 }
