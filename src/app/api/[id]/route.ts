@@ -31,22 +31,22 @@ async function commonHandler(req: Request, params: { id: string }): Promise<Next
   return NextResponse.json(requestData);
 }
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
-  return commonHandler(req, params);
+export async function GET(req: Request, context: any) {
+  return commonHandler(req, context.params);
 }
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
-  return commonHandler(req, params);
+export async function POST(req: Request, context: any) {
+  return commonHandler(req, context.params);
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-  return commonHandler(req, params);
+export async function PUT(req: Request, context: any) {
+  return commonHandler(req, context.params);
 }
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
-  return commonHandler(req, params);
+export async function PATCH(req: Request, context: any) {
+  return commonHandler(req, context.params);
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-  return commonHandler(req, params);
+export async function DELETE(req: Request, context: any) {
+  return commonHandler(req, context.params);
 }
