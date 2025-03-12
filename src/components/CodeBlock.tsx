@@ -21,7 +21,7 @@ export default function CodeBlock({ code, language = 'html' }: { code: string, l
     <div className="relative">
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 bg-gray-800 hover:bg-gray-700 text-white p-2 rounded transition"
+        className="absolute top-2 right-2 bg-gray-800 hover:bg-gray-700 text-white p-2 rounded transition cursor-pointer"
       >
         <Copy size={16} />
       </button>

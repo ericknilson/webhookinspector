@@ -33,7 +33,7 @@ export default function Inspect() {
 
   useEffect(() => {
     if (session?.user?.id) {
-      setUrl(`https://webhook.desenlike.com.br/api/${session.user.id}`);
+      setUrl(`https://webhookinspector.com/api/${session.user.id}`);
     }
   }, [session]);
   
@@ -85,7 +85,7 @@ export default function Inspect() {
           )}
           {data.length === 0 && <p>No requests yet.</p>}
           <ul>
-            {data.map((req, index) => (
+            {data.reverse().map((req, index) => (
               <li
                 key={index}
                 onClick={() => setSelectedRequest(req)}
