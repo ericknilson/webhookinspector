@@ -25,9 +25,9 @@ export default function Inspect() {
   const [url, setUrl] = useState('');
   const shouldFetch = session?.user?.id ? `/api/requests?id=${session.user.id}` : null;
   const { data, error } = useSWR<RequestData[]>(shouldFetch, fetcher, { refreshInterval: 3000 });
-  const { data: repo } = useSWR('https://api.github.com/repos/erickmanovei/webhook', fetcher);
+  const { data: repo } = useSWR('https://api.github.com/repos/erickmanovei/webhookinspector', fetcher);
   const { data: contributors } = useSWR(
-    'https://api.github.com/repos/erickmanovei/webhook/contributors',
+    'https://api.github.com/repos/erickmanovei/webhookinspector/contributors',
     fetcher
   );
   const [selectedRequest, setSelectedRequest] = useState<RequestData | null>(null);
@@ -106,7 +106,7 @@ export default function Inspect() {
           <div className="p-4 bg-gray-900 text-zinc-400 rounded mt-10">
             <div 
               className='flex p-2 rounded items-center justify-center gap-2 mb-4 cursor-pointer hover:bg-gray-800' 
-              onClick={() => window.open('https://github.com/erickmanovei/webhook', '_blank')}
+              onClick={() => window.open('https://github.com/erickmanovei/webhookinspector', '_blank')}
             >
               <GitHubIcon />
               <h1 className='text-white font-bold'>Github</h1>
