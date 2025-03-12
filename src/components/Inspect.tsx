@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { signOut, useSession } from "next-auth/react";
 import CodeBlock from './CodeBlock';
+import Image from 'next/image';
 
 interface RequestData {
   number: number;
@@ -126,7 +127,14 @@ export default function Inspect() {
                 </ul>
               </>
             )}
-        </div>
+          </div>
+          <div className='mt-4'>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="hosted_button_id" value="TCKVLBXPSCH9A" />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <Image alt="" src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+          </div>
         </aside>
 
         {/* Content Area */}

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Webhook Inspector
+
+Webhook Inspector is an **open-source** system designed to **monitor and inspect webhook calls** via REST API. It allows developers to track, analyze, and debug webhook events in real-time, ensuring smooth integrations with third-party services.
+
+## Features
+
+- **Real-time Monitoring**: Capture and inspect incoming webhook requests.
+- **Detailed Logging**: Store and review webhook payloads.
+- **Replay Requests**: Re-send captured webhooks for debugging purposes.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (Latest LTS version recommended)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/erickmanovei/webhookinspector.git
+   cd webhookinspector
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies:
+   ```sh
+   yarn
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the server in development mode:
+   ```sh
+   yarn dev
+   ```
 
-## Learn More
+4. Access Webhook Inspector at:
+   ```
+   http://localhost:3000
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## How to Contribute
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions from the community! If you would like to help improve Webhook Inspector, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Fork** the repository.
+2. **Create a new branch** (`feature/new-feature` or `fix/bug-fix`).
+3. **Commit your changes** with a meaningful message.
+4. **Push** your branch to GitHub.
+5. **Create a Pull Request** and describe your changes.
 
-## Deploy on Vercel
+## Support & Donations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you find this project useful, consider supporting it by making a donation. Your support helps us maintain and improve Webhook Inspector.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate?hosted_button_id=TCKVLBXPSCH9A)
+
+## License
+
+Webhook Inspector is released under the [MIT License](LICENSE). Feel free to use, modify, and distribute it as per the license terms.
+
+---
+
+Happy coding! 🚀
