@@ -66,9 +66,9 @@ export default function Inspect() {
         <p>Hello, {session?.user?.name}! </p>
         <button className='text-sm font-semibold cursor-pointer' onClick={() => signOut()}>(Sign out)</button>
       </div>
-      <div className="flex h-screen font-sans">
+      <div className="flex flex-col md:flex-row h-screen font-sans">
         {/* Menu */}
-        <aside className="w-1/4 bg-gray-100 p-4 overflow-y-auto border-r text-gray-700">
+        <aside className="md:w-1/4 w-full bg-gray-100 p-4 md:overflow-y-auto border-r text-gray-700">
           <div className='flex flex-col items-center mb-4'>
             <Image src="/logo.png" width={70} height={70} alt="Webhook Inspector" />
             <h1 className="text-xl font-bold mb-4 text-gray-700">Webhook Inspector</h1>
@@ -94,7 +94,7 @@ export default function Inspect() {
               <li
                 key={index}
                 onClick={() => setSelectedRequest(req)}
-                className={`mb-2 p-2 rounded cursor-pointer hover:bg-blue-200 ${
+                className={`mb-2 p-2 rounded cursor-pointer hover:bg-blue-200 text-center md:text-left ${
                   selectedRequest === req ? 'bg-blue-400' : 'bg-blue-100'
                 }`}
               >
@@ -107,7 +107,7 @@ export default function Inspect() {
             ))}
           </ul>
           
-          <div className="p-4 bg-gray-900 text-zinc-400 rounded mt-10">
+          <div className="p-4 bg-gray-900 text-zinc-400 rounded mt-10 hidden md:block">
             <div 
               className='flex p-2 rounded items-center justify-center gap-2 mb-4 cursor-pointer hover:bg-gray-800' 
               onClick={() => window.open('https://github.com/erickmanovei/webhookinspector', '_blank')}
@@ -141,7 +141,7 @@ export default function Inspect() {
         </aside>
 
         {/* Content Area */}
-        <main className="flex-1 p-4 overflow-y-auto">
+        <main className="flex-1 p-4 md:overflow-y-auto">
           {selectedRequest ? (
             <div>
               <h2 className="text-2xl font-bold mb-4">Request {selectedRequest.number} Details</h2>
@@ -169,6 +169,30 @@ export default function Inspect() {
               Select a request to see details.
             </div>
           )}
+          <div className="p-4 bg-gray-900 text-zinc-400 rounded mt-10 block md:hidden">
+            <div 
+              className='flex p-2 rounded items-center justify-center gap-2 mb-4 cursor-pointer hover:bg-gray-800' 
+              onClick={() => window.open('https://github.com/erickmanovei/webhookinspector', '_blank')}
+            >
+              <GitHubIcon />
+              <h1 className='text-white font-bold'>Github</h1>
+            </div>
+            {!!repo?.owner?.login && (
+              <h1 className="text-sm font-bold mb-4">Created by: {repo?.owner?.login}</h1>
+            )}
+            {!!contributors && !!contributors.length && (
+              <>
+                <h2 className="text-sm font-semibold mb-2">Contributors:</h2>
+                <ul className="list-disc ml-6">
+                  {contributors.map((contributor: any) => (
+                    <li key={contributor.id} className="mb-1 text-sm">
+                      {contributor.login}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
         </main>
       </div>
     </>
