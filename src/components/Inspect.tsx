@@ -8,6 +8,7 @@ import { signOut, useSession } from "next-auth/react";
 import CodeBlock from './CodeBlock';
 
 interface RequestData {
+  number: number;
   method: string;
   headers: Record<string, string>;
   query: Record<string, string>;
@@ -85,7 +86,7 @@ export default function Inspect() {
           )}
           {data.length === 0 && <p>No requests yet.</p>}
           <ul>
-            {data.reverse().map((req, index) => (
+            {data.map((req, index) => (
               <li
                 key={index}
                 onClick={() => setSelectedRequest(req)}
@@ -97,7 +98,7 @@ export default function Inspect() {
                   <span className="font-semibold">{req.method}</span>
                   <span className="text-sm text-gray-600">{req.time}</span>
                 </div>
-                <p className="text-sm text-gray-800">Request {index + 1}</p>
+                <p className="text-sm text-gray-800">Request {req.number}</p>
               </li>
             ))}
           </ul>
@@ -132,7 +133,7 @@ export default function Inspect() {
         <main className="flex-1 p-4 overflow-y-auto">
           {selectedRequest ? (
             <div>
-              <h2 className="text-2xl font-bold mb-4">Request Details</h2>
+              <h2 className="text-2xl font-bold mb-4">Request {selectedRequest.number} Details</h2>
               <div className="mb-4">
                 <div className="mb-2">
                   <h3 className="font-semibold">Headers:</h3>
