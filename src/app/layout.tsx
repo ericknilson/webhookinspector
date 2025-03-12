@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Webhook Inspector",
-  description: "Inpspect incoming webhooks",
+  description: "Inspect incoming webhooks requests in real-time",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
