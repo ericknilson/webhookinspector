@@ -69,7 +69,10 @@ export default function Inspect() {
       <div className="flex h-screen font-sans">
         {/* Menu */}
         <aside className="w-1/4 bg-gray-100 p-4 overflow-y-auto border-r text-gray-700">
-          <h1 className="text-xl font-bold mb-4 text-gray-700">Webhook Inspector</h1>
+          <div className='flex flex-col items-center mb-4'>
+            <Image src="/logo.png" width={70} height={70} alt="Webhook Inspector" />
+            <h1 className="text-xl font-bold mb-4 text-gray-700">Webhook Inspector</h1>
+          </div>
           
           <p className="mb-4 text-sm">
             Send requests to:

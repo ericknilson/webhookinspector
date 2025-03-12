@@ -2,6 +2,7 @@
 
 import { signIn, useSession } from "next-auth/react";
 import Inspect from "./Inspect";
+import Image from "next/image";
 
 export default function Login() {
   const { data: session } = useSession();
@@ -10,10 +11,13 @@ export default function Login() {
     <Inspect />
   ) : (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
-      <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-96 text-center">
+      <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-96 flex flex-col items-center">
+        <Image src="/logo.png" width={100} height={100} alt="Webhook Inspector" />
         <h1 className="text-2xl font-bold text-gray-900 mb-6">
           Webhook Inspector
         </h1>
+
+        <p className="text-sm text-gray-900 mb-6 text-center">Webhook Inspector is an open-source system designed to monitor and inspect webhook calls via REST API. It allows developers to track, analyze, and debug webhook events in real-time, ensuring smooth integrations with third-party services.</p>
 
         <button
           onClick={() => signIn("google")}
