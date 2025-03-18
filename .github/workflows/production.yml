@@ -23,7 +23,7 @@ jobs:
       - run: echo "${{ secrets.PRODUCTION_ENV }}" > .env
       - run: yarn
       - run: yarn build
-      - run: zip -r deploy.zip .next next-env.d.ts tsconfig.json yarn.lock package.json public
+      - run: zip -r deploy.zip .next next-env.d.ts tsconfig.json yarn.lock package.json public server.js
 
       - name: Copy to Production
         uses: appleboy/scp-action@master
@@ -50,7 +50,9 @@ jobs:
             npm install -g yarn@1.22.22
             cd ~/code/webhook
             pm2 stop webhook
+            # pm2 stop webhook-websocket
             unzip -o deploy.zip
             yarn install --production
             rm -rf deploy.zip
             pm2 start webhook
+            # pm2 start webhook-websocket
