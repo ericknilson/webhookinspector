@@ -23,7 +23,7 @@ jobs:
       - run: echo "${{ secrets.PRODUCTION_ENV }}" > .env
       - run: yarn
       - run: yarn build
-      - run: zip -r deploy.zip .next next-env.d.ts tsconfig.json yarn.lock package.json public server.js
+      - run: zip -r deploy.zip .next next-env.d.ts tsconfig.json yarn.lock package.json public src server.js
 
       - name: Copy to Production
         uses: appleboy/scp-action@master
