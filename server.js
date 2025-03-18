@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 const port = process.env.WEBSOCKET_SERVER_PORT || 3000;
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({ dev, dir: './src' });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
