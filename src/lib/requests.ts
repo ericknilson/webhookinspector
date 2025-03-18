@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+import sendWebhook from "./sendWebhook";
+
 // src/lib/requests.ts
 export interface RequestData {
   id: string;
@@ -16,6 +19,14 @@ let requests: RequestData[] = [];
 export function addRequest(requestData: RequestData): void {
   requestData.number = requests.filter(e => e.id === requestData.id).length + 1;
   requests = [requestData, ...requests];
+  console.log('query', requestData.query)
+  sendWebhook({
+    id: requestData.id,
+    query: requestData.query ?? {},
+    body: requestData.body ?? {},
+    headers: requestData.headers ?? {},
+    method: requestData.method,
+  })
 }
 
 export function clearRequests(id: string): void {

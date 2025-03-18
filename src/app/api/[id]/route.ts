@@ -32,21 +32,26 @@ async function commonHandler(req: Request, params: { id: string }): Promise<Next
 }
 
 export async function GET(req: Request, context: any) {
-  return commonHandler(req, context.params);
+  const params = await context.params;
+  return commonHandler(req, params);
 }
 
 export async function POST(req: Request, context: any) {
-  return commonHandler(req, context.params);
+  const params = await context.params;
+  return commonHandler(req, params);
 }
 
 export async function PUT(req: Request, context: any) {
-  return commonHandler(req, context.params);
+  const params = await context.params;
+  return commonHandler(req, params);
 }
 
 export async function PATCH(req: Request, context: any) {
-  return commonHandler(req, context.params);
+  const params = await context.params;
+  return commonHandler(req, params);
 }
 
 export async function DELETE(req: Request, context: any) {
-  return commonHandler(req, context.params);
+  const params = await context.params;
+  return commonHandler(req, params);
 }
