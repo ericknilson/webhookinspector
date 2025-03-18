@@ -50,9 +50,9 @@ jobs:
             npm install -g yarn@1.22.22
             cd ~/code/webhook
             pm2 stop webhook
-            # pm2 stop webhook-websocket
+            pm2 stop webhook-websocket
             unzip -o deploy.zip
             yarn install --production
             rm -rf deploy.zip
             pm2 start webhook
-            # pm2 start webhook-websocket
+            pm2 start webhook-websocket
