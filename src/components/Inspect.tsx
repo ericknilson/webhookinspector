@@ -5,8 +5,10 @@
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { signOut, useSession } from "next-auth/react";
-import CodeBlock from './CodeBlock';
 import Image from 'next/image';
+import { Info } from "lucide-react";
+import CodeBlock from './CodeBlock';
+import Modal from './Modal';
 
 interface RequestData {
   number: number;
@@ -24,6 +26,7 @@ const clearRequests = (id: string) => fetch(`/api/requests?id=${id}`, { method: 
 export default function Inspect() {
   const { data: session } = useSession();
   const [url, setUrl] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const shouldFetch = session?.user?.id ? `/api/requests?id=${session.user.id}` : null;
   const { data, error } = useSWR<RequestData[]>(shouldFetch, fetcher, { refreshInterval: 3000 });
   const { data: repo } = useSWR('https://api.github.com/repos/erickmanovei/webhookinspector', fetcher);
@@ -73,8 +76,15 @@ export default function Inspect() {
             <Image src="/logo.png" width={70} height={70} alt="Webhook Inspector" />
             <h1 className="text-xl font-bold mb-4 text-gray-700">Webhook Inspector</h1>
           </div>
-          
-          <p className="mb-4 text-sm">
+          {session && (
+            <>
+              <p className="text-sm">
+                Your WebhookInspectorId is <Info size={16} className='inline cursor-pointer' color='blue' onClick={() => setIsModalOpen(true)} />:
+              </p>
+              <CodeBlock code={session.user.id} />
+            </>
+          )}
+          <p className="mt-4 text-sm">
             Send requests to:
           </p>
           <CodeBlock code={url} />
@@ -138,6 +148,7 @@ export default function Inspect() {
               <Image alt="" src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1" height="1" />
             </form>
           </div>
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </aside>
 
         {/* Content Area */}
