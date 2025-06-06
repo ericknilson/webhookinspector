@@ -25,42 +25,42 @@ To do this, you need to download the executable below and run it on your local m
 
         <ul className="list-disc list-inside mt-2">
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-windows-amd64.exe" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-windows-amd64.exe" className="text-blue-500 hover:underline">
               Windows amd64
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-windows-386.exe" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-windows-386.exe" className="text-blue-500 hover:underline">
               Windows 386
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-linux-amd64" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-linux-amd64" className="text-blue-500 hover:underline">
               Linux amd64
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-linux-386" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-linux-386" className="text-blue-500 hover:underline">
               Linux 386
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-linux-arm" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-linux-arm" className="text-blue-500 hover:underline">
               Linux arm
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-linux-arm64" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-linux-arm64" className="text-blue-500 hover:underline">
               Linux arm64
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-darwin-amd64" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-darwin-amd64" className="text-blue-500 hover:underline">
               Darwin amd64
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://github.com/erickmanovei/webhookinspector-cli/blob/master/releases/webhookinspector-darwin-arm64" className="text-blue-500 hover:underline">
+            <a target="_blank" href="https://github.com/ericknilson/webhookinspector-cli/blob/master/releases/webhookinspector-darwin-arm64" className="text-blue-500 hover:underline">
               Darwin arm64
             </a>
           </li>

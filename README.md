@@ -17,7 +17,7 @@ Webhook Inspector is an **open-source** system designed to **monitor and inspect
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/erickmanovei/webhookinspector.git
+   git clone https://github.com/ericknilson/webhookinspector.git
    cd webhookinspector
    ```
 
