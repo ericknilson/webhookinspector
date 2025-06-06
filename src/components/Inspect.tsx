@@ -126,7 +126,7 @@ export default function Inspect() {
               <h1 className='text-white font-bold'>Github</h1>
             </div>
             {!!repo?.owner?.login && (
-              <h1 className="text-sm font-bold mb-4">Created by: {repo?.owner?.login}</h1>
+              <h1 className="text-sm font-bold mb-4">Created by: <a href={repo?.owner?.html_url} target='_blank'>{repo?.owner?.login}</a></h1>
             )}
             {!!contributors && !!contributors.length && (
               <>
@@ -134,7 +134,7 @@ export default function Inspect() {
                 <ul className="list-disc ml-6">
                   {contributors.map((contributor: any) => (
                     <li key={contributor.id} className="mb-1 text-sm">
-                      {contributor.login}
+                      <a href={contributor.html_url} target='_blank'>{contributor.login}</a>
                     </li>
                   ))}
                 </ul>
